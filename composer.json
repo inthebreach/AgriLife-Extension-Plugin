@@ -1,0 +1,21 @@
+{
+    "name": "agrilife/extension",
+    "description": "Functionality for AgriLife Extension sites",
+    "license": "GPL2+",
+    "authors": [
+        {
+            "name": "J. Aaron Eaton",
+            "email": "aaron@channeleaton.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+    },
+	"require-dev": {
+	},
+    "autoload": {
+        "psr-4": {
+            "AgriLife\\Extension\\": "src"
+        }
+    }
+}
