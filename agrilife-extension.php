@@ -18,11 +18,11 @@ define( 'AG_EXT_DIR_FILE', __FILE__ );
 define( 'AG_EXT_DIR_URL', plugin_dir_url( __FILE__ ) );
 
 // Register plugin activation functions
-$activate = new \AgriLife\Core\Plugin\Activate;
+$activate = new \AgriLife\Core\Activate;
 register_activation_hook( __FILE__, array( $activate, 'run') );
 
 // Register plugin deactivation functions
-$deactivate = new \AgriLife\Core\Plugin\Deactivate;
+$deactivate = new \AgriLife\Core\Deactivate;
 register_deactivation_hook( __FILE__, array( $deactivate, 'run' ) );
 
 $ext_required_dom = new \AgriLife\Extension\RequiredDOM();
