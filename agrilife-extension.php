@@ -34,3 +34,7 @@ $ext_ajax = new \AgriLife\Extension\Ajax();
 add_action( 'widgets_init', function() {
 	register_widget( '\AgriLife\Extension\Widget\CountyOfficeLocator' );
 });
+
+$ext_posttype_program = new \AgriLife\Extension\PostType\Program();
+
+$ext_program_fields = new \AgriLife\Core\CustomFields( 'Program Details', AG_EXT_DIR_PATH . '/fields' );
