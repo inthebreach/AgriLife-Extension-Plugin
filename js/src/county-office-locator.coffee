@@ -6,17 +6,17 @@ AgriLife.Location = class Location
 	constructor: (@cookie) ->
 		@cookie = {} if not @cookie
 
-		console.log @cookie
+		@deferred = $.Deferred()
+
 		if $.isEmptyObject @cookie then @getNewLocation() else @getCookieLocation()
 
 	getNewLocation: () ->
 		locator = navigator.geolocation.getCurrentPosition @locationSuccess, @locationError
-		console.log 'Getting new location'
 
 	getCookieLocation: () ->
 		@cookie = JSON.parse @cookie
-		console.log 'Getting location from cookie'
 		console.log @cookie
+		@showInfo()
 
 	locationSuccess: (data) =>
 		lat = data.coords.latitude
@@ -27,7 +27,6 @@ AgriLife.Location = class Location
 		console.log 'There was an error'
 
 	getCounty: (lat, long) ->
-		console.log 'getting county'
 		$.ajax(
 			url: 'http://data.fcc.gov/api/block/find'
 			data:
@@ -41,7 +40,6 @@ AgriLife.Location = class Location
 				@cookie.long = long
 				@cookie.county = data.County.name
 				@cookie.state = data.State.name
-				console.log @cookie
 		).then( (data) =>
 			getData =
 				action: 'get_units'
@@ -61,8 +59,17 @@ AgriLife.Location = class Location
 				path: '/'
 			console.log @cookie
 		)
+
+	showInfo: () ->
+		template = $('script#county-info').html()
+		contactInfo = _.template template, @cookie
+		$('#county-locator-body').html(contactInfo)
+		@deferred.resolve()
+
 do ($ = jQuery) ->
 	"use strict"
 	$ ->
 		agCookie = $.cookie('tamu_ext_location')
 		loc = new AgriLife.Location(agCookie)
+		loc.deferred.done () =>
+			$(document).foundation('reflow')

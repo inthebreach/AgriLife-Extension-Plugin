@@ -15,7 +15,7 @@
       if (!this.cookie) {
         this.cookie = {};
       }
-      console.log(this.cookie);
+      this.deferred = $.Deferred();
       if ($.isEmptyObject(this.cookie)) {
         this.getNewLocation();
       } else {
@@ -25,14 +25,13 @@
 
     Location.prototype.getNewLocation = function() {
       var locator;
-      locator = navigator.geolocation.getCurrentPosition(this.locationSuccess, this.locationError);
-      return console.log('Getting new location');
+      return locator = navigator.geolocation.getCurrentPosition(this.locationSuccess, this.locationError);
     };
 
     Location.prototype.getCookieLocation = function() {
       this.cookie = JSON.parse(this.cookie);
-      console.log('Getting location from cookie');
-      return console.log(this.cookie);
+      console.log(this.cookie);
+      return this.showInfo();
     };
 
     Location.prototype.locationSuccess = function(data) {
@@ -47,7 +46,6 @@
     };
 
     Location.prototype.getCounty = function(lat, long) {
-      console.log('getting county');
       return $.ajax({
         url: 'http://data.fcc.gov/api/block/find',
         data: {
@@ -62,8 +60,7 @@
             _this.cookie.lat = lat;
             _this.cookie.long = long;
             _this.cookie.county = data.County.name;
-            _this.cookie.state = data.State.name;
-            return console.log(_this.cookie);
+            return _this.cookie.state = data.State.name;
           };
         })(this)
       }).then((function(_this) {
@@ -99,6 +96,14 @@
       })(this));
     };
 
+    Location.prototype.showInfo = function() {
+      var contactInfo, template;
+      template = $('script#county-info').html();
+      contactInfo = _.template(template, this.cookie);
+      $('#county-locator-body').html(contactInfo);
+      return this.deferred.resolve();
+    };
+
     return Location;
 
   })();
@@ -108,7 +113,12 @@
     return $(function() {
       var agCookie, loc;
       agCookie = $.cookie('tamu_ext_location');
-      return loc = new AgriLife.Location(agCookie);
+      loc = new AgriLife.Location(agCookie);
+      return loc.deferred.done((function(_this) {
+        return function() {
+          return $(document).foundation('reflow');
+        };
+      })(this));
     });
   })(jQuery);
 

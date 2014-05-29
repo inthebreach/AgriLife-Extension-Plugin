@@ -19,7 +19,7 @@ class Ajax {
 			// Get from PeopleAPI
 			$soap = new \SoapClient( 'https://agrilifepeople.tamu.edu/api/v4.cfc?wsdl' );
 			$api = new \AgriLife\Core\PeopleAPI( $soap );
-			$agrilife_units = $api->get_units( 'MR1ac6DLFjce4q9zl6M9Kw==', 2 );
+			$agrilife_units = $api->get_units( AGRILIFE_GET_UNITS_HASH, 2 );
 			set_transient( 'agrilife_units', $agrilife_units, WEEK_IN_SECONDS );
 		}
 

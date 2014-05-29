@@ -26,7 +26,10 @@ class CountyOfficeLocator extends \WP_Widget {
 		if ( ! empty( $title ) )
 			echo $args['before_title'] . $title . $args['after_title'];
 
-		echo '<p id="county-locator-body">Allow us to find your location or <a href="#">select your county manually</a></p>';
+		ob_start();
+		include AG_EXT_DIR_PATH . '/view/county-locator.php';
+		$content = ob_get_clean();
+		echo $content;
 		echo $args['after_widget'];
 
 	}
