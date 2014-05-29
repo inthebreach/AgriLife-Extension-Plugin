@@ -26,3 +26,11 @@ $deactivate = new \AgriLife\Core\Deactivate;
 register_deactivation_hook( __FILE__, array( $deactivate, 'run' ) );
 
 $ext_required_dom = new \AgriLife\Extension\RequiredDOM();
+
+$ext_asset = new \AgriLife\Extension\Asset();
+
+$ext_ajax = new \AgriLife\Extension\Ajax();
+
+add_action( 'widgets_init', function() {
+	register_widget( '\AgriLife\Extension\Widget\CountyOfficeLocator' );
+});
