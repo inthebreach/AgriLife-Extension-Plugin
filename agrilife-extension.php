@@ -36,5 +36,7 @@ add_action( 'widgets_init', function() {
 });
 
 $ext_posttype_program = new \AgriLife\Extension\PostType\Program();
-
 $ext_program_fields = new \AgriLife\Core\CustomFields( 'Program Details', AG_EXT_DIR_PATH . '/fields' );
+
+$ext_posttype_solution = new \AgriLife\Extension\PostType\Solution();
+$ext_solution_fields = new \AgriLife\Core\CustomFields( 'Solution Details', AG_EXT_DIR_PATH . '/fields' );
