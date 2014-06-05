@@ -35,8 +35,12 @@ add_action( 'widgets_init', function() {
 	register_widget( '\AgriLife\Extension\Widget\CountyOfficeLocator' );
 });
 
-$ext_posttype_program = new \AgriLife\Extension\PostType\Program();
-$ext_program_fields = new \AgriLife\Core\CustomFields( 'Program Details', AG_EXT_DIR_PATH . '/fields' );
+add_action( 'plugins_loaded', function() {
+	$ext_posttype_program = new \AgriLife\Extension\PostType\Program();
+	$ext_program_fields = new \AgriLife\Core\CustomFields( 'Program Details', AG_EXT_DIR_PATH . '/fields' );
+});
 
-$ext_posttype_solution = new \AgriLife\Extension\PostType\Solution();
-$ext_solution_fields = new \AgriLife\Core\CustomFields( 'Solution Details', AG_EXT_DIR_PATH . '/fields' );
+add_action( 'plugins_loaded', function() {
+	$ext_posttype_solution = new \AgriLife\Extension\PostType\Solution();
+	$ext_solution_fields = new \AgriLife\Core\CustomFields( 'Solution Details', AG_EXT_DIR_PATH . '/fields' );
+});
