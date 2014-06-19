@@ -33,7 +33,7 @@ class Solution {
 			'labels' => $labels,
 			'public' => true,
 			'show_ui' => true,
-			'rewrite' => array( 'slug' => 'solutions' ),
+			'rewrite' => array( 'with_front' => false, 'slug' => 'solutions' ),
 			'supports' => array( 'title', 'revisions' ),
 			'has_archive' => true,
 			'menu_icon' => 'dashicons-hammer',

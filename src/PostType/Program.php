@@ -33,7 +33,7 @@ class Program {
 			'labels' => $labels,
 			'public' => true,
 			'show_ui' => true,
-			'rewrite' => array( 'slug' => 'programs' ),
+			'rewrite' => array( 'with_front' => false, 'slug' => 'programs' ),
 			'supports' => array( 'title', 'revisions' ),
 			'has_archive' => true,
 			'menu_icon' => 'dashicons-welcome-widgets-menus',
