@@ -16,7 +16,7 @@ function agrilife_child_page_list() {
 
     if ( get_field( 'solution-featured-image' ) ) {
         $image = get_field( 'solution-featured-image' );
-        $image_src = $image['sizes']['thumbnail'];
+        $image_src = $image['sizes']['program-solution_single'];
         $image_alt = the_title( '', '', false );
     }
 

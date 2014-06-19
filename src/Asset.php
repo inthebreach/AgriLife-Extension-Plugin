@@ -8,6 +8,8 @@ class Asset {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_js' ) );
 
+        $this->add_image_sizes();
+
 	}
 
 	public function register_js() {
@@ -29,5 +31,15 @@ class Asset {
 		);
 
 	}
+
+    /**
+     * Add the required image sizes
+     * @return void
+     */
+    public function add_image_sizes() {
+
+        add_image_size( 'program-solution_single', 558, 287, true );
+
+    }
 
 }
