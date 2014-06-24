@@ -7,3 +7,4 @@
 3. Run `composer install` to set up the php modules
 4. Activate AgriLife Core Plugin
 5. Activate this plugin
+6. Activate Advanced Custom Fields 5 (beta)
