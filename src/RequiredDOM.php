@@ -14,9 +14,6 @@ class RequiredDOM {
         // Add Extension Body Class
         add_filter( 'body_class', array( $this, 'ext_body_class') );
 
-		// Render the social icons in header
-		add_action( 'genesis_site_description', array($this, 'render_social_icons') ) ;
-
         // Render the footer
         add_action( 'genesis_header', array($this, 'add_extension_footer_content') ) ;
 
