@@ -20,6 +20,9 @@ class RequiredDOM {
         // Render the footer
         add_action( 'genesis_header', array($this, 'add_extension_footer_content') ) ;
 
+        // Move tagline below navigation
+        add_action('genesis_header',array($this, 'move_tagline') );
+
 	}
 
 	/**
@@ -45,6 +48,19 @@ class RequiredDOM {
 
 		return $title;
 	}
+
+
+    /**
+     * Moves the tagline
+     *
+     * @return void
+     */
+    public function move_tagline() {
+
+        remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
+        add_action('genesis_before_content_sidebar_wrap','genesis_seo_site_description');
+
+    }
 
     /**
      * Add and Extension body class
