@@ -58,7 +58,7 @@ class RequiredDOM {
     public function move_tagline() {
 
         remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
-        add_action('genesis_before_content_sidebar_wrap','genesis_seo_site_description');
+        add_action('genesis_after_header','genesis_seo_site_description');
 
     }
 
