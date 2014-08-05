@@ -89,7 +89,7 @@ class RequiredDOM {
 
         add_action('genesis_footer', array($this, 'render_ext_logo'));
         add_action('genesis_footer', array($this, 'render_tamus_logo'));
-        add_action('genesis_footer', array($this, 'render_social_icons'));
+        add_action('genesis_footer', array($this, 'render_footer_widgets'));
         add_action('genesis_footer', array($this, 'render_required_links'));
     }
 
@@ -111,20 +111,17 @@ class RequiredDOM {
     }
 
 	/**
-	 * Render the social icons in header
+	 * Render the widgets in the footer
 	 * @since 1.0
-	 * @return string
+	 * @return void
 	 */
-	public function render_social_icons() {
+	public function render_footer_widgets() {
 
-		$output = '<div id="simple-social-icons-1" class="widget simple-social-icons social-icons">
-		    <div class="widget-wrap"><ul class="alignleft"><li class="social-facebook"><a href="http://twitter.com/travis"></a></li><li class="social-flickr"><a href="http://twitter.com/travis"></a></li><li class="social-twitter"><a href="http://twitter.com/travis"></a></li><li class="social-vimeo"><a href="http://twitter.com/travis"></a></li></ul></div>
-
-
-
-		</div>';
-
-		echo $output;
+        if ( is_active_sidebar( 'footer-center' ) ) : ?>
+            <div id="footer-center-widgets" class="footer-center widget-area" role="complementary">
+                <?php dynamic_sidebar( 'footer-center' ); ?>
+            </div><!-- #footer-center-widgets -->
+        <?php endif;
 
 	}
 
@@ -182,7 +179,7 @@ class RequiredDOM {
     {
 
         $output = '
-            <div class="footer-container">
+            <div class="footer-container-required">
                 <ul class="req-links">
 			        <li><a href="http://agrilife.org/required-links/compact/">Compact with Texans</a></li>
 			        <li><a href="http://agrilife.org/required-links/privacy/">Privacy and Security</a></li>

@@ -33,6 +33,8 @@ $ext_ajax = new \AgriLife\Extension\Ajax();
 
 $ext_templates = new \AgriLife\Extension\Templates();
 
+$ext_widget_areas = new \AgriLife\Extension\WidgetAreas();
+
 add_action( 'widgets_init', function() {
 	register_widget( '\AgriLife\Extension\Widget\CountyOfficeLocator' );
 });
