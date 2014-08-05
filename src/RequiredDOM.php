@@ -18,7 +18,7 @@ class RequiredDOM {
         add_action( 'genesis_header', array($this, 'add_extension_footer_content') ) ;
 
         // Remove search from navigation
-        add_action( 'genesis_header', array($this, 'remove_search') ) ;
+        //add_action( 'genesis_header', array($this, 'remove_search') ) ;
 
         // Move tagline below navigation
         add_action('genesis_header',array($this, 'move_tagline') );
