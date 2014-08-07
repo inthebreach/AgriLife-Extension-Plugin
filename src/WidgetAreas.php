@@ -29,6 +29,15 @@ class WidgetAreas {
             )
         );
 
+        genesis_register_widget_area(
+            array(
+                'id'               => 'solutions-menu-column',
+                'name'             => __( 'Solutions Menu', 'agrilife_extension' ),
+                'description'      => __( 'This is the Solutions menu widget area. It appears in the left column. This widget area is not equipped to display any widget, and works best with menus', 'agrilife_extension' ),
+                '_genesis_builtin' => false,
+            )
+        );
+
     }
 
 
