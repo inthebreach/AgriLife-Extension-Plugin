@@ -85,7 +85,10 @@ function agrilife_ext_solution_content()
 function ext_do_right_sidebar()
 {
 
-    echo '<h4 class="widget-title widgettitle contact-blurb">' . get_field('solution-contact-blurb') . '</h4>';
+    if( $contact_blurb = get_field('solution-contact-blurb') )
+    {
+        echo '<h4 class="widget-title widgettitle contact-blurb">' . $contact_blurb . '</h4>';
+    }
 
     if (have_rows('solution-featured-sites')):
         echo '<div id="featured-1" class="widget widget_nav_menu"><div class="widget-wrap">';
@@ -113,22 +116,23 @@ function ext_did_you_know()
 
     $query = new WP_Query($args);
     if ($query->have_posts()) {
-        echo '<div id="text-4" class="widget widget_text">';
-        echo '  <div class="widget-wrap">';
-        echo '  <h4 class="widget-title widgettitle">Did you know?</h4>';
+
         while ($query->have_posts()) {
+
             $query->the_post();
-
-            $rows = get_field('program-did-you-know');
-
-            // Get a random 'fact'
-            $row_count = count($rows);
-            $i = rand(0, $row_count - 1);
-
-            echo $rows[$i]['fact'];
+            if ($rows = get_field('program-did-you-know')){
+                // Get a random 'fact'
+                $row_count = count($rows);
+                $i = rand(0, $row_count - 1);
+                echo '<div id="text-4" class="widget widget_text">';
+                echo '  <div class="widget-wrap">';
+                echo '  <h4 class="widget-title widgettitle">Did you know?</h4>';
+                echo $rows[$i]['fact'];
+                echo '  </div>';
+                echo '</div>';
+            }
         }
-        echo '  </div>';
-        echo '</div>';
+
     }
     /* Restore original Post Data */
     wp_reset_postdata();
