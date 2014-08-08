@@ -39,7 +39,7 @@ add_action('genesis_entry_content', 'agrilife_ext_solution_content');
 function ext_do_menu_sidebar()
 {
 
-    if (is_active_sidebar('footer-center')) :
+    if (is_active_sidebar('solutions-menu-column')) :
         dynamic_sidebar('solutions-menu-column');
     endif;
 
