@@ -9,6 +9,26 @@ remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 
+if (is_singular('extension-programs')) {
+
+    // Left Column
+    // Remove the Secondary (left) Sidebar from the Secondary Sidebar area.
+    remove_action('genesis_sidebar_alt', 'genesis_do_sidebar_alt');
+    // Place the Secondary Sidebar into the Primary Sidebar area.
+    add_action('genesis_sidebar_alt', 'ext_do_menu_sidebar');
+
+
+    // Right Column
+    // Remove the default (right) genesis sidebar
+    remove_action('genesis_sidebar', 'genesis_do_sidebar');
+    // Add the sidebar content
+    add_action('genesis_sidebar', 'ext_do_program_right_sidebar');
+    add_action('genesis_sidebar', 'ext_did_you_know');
+
+}
+
+
+
 add_action( 'genesis_entry_content', 'agrilife_child_page_list' );
 
 function agrilife_child_page_list() {
@@ -22,43 +42,71 @@ function agrilife_child_page_list() {
 
 
     if(get_field('program-featured-image')) {
-        ?> <img src="<?php echo $image_src; ?>" alt="<?php echo $image_alt; ?>" /> <?php
+        ?> <img src="<?php echo $image_src; ?>" class="program-featured-image"  alt="<?php echo $image_alt; ?>" /> <?php
     }
-    ?>
 
-    <?php the_field( 'program-description' ); ?>
+    the_field( 'program-description' );
 
-
-    <?php if( have_rows('program-quick-links') ): ?>
-        <h3>Quick Links</h3>
+    if( have_rows('program-quick-links') ): ?>
+        <!-- <h3>Quick Links</h3> -->
+        <div class="solution-links">
         <ul>
             <?php while( have_rows('program-quick-links') ): the_row(); ?>
                 <li><a href="<?php the_sub_field('url'); ?>" title="<?php the_sub_field('title'); ?>"><?php the_sub_field('title'); ?></a></li>
             <?php endwhile; ?>
         </ul>
-    <?php endif; ?>
-
-    <?php if( have_rows('program-featured-sites') ): ?>
-        <h3>Featured Sites</h3>
-        <ul>
-            <?php while( have_rows('program-featured-sites') ): the_row(); ?>
-                <li><a href="<?php the_sub_field('url'); ?>" title="<?php the_sub_field('title'); ?>"><?php the_sub_field('title'); ?></a></li>
-            <?php endwhile; ?>
-        </ul>
-    <?php endif; ?>
-
-    <?php the_field( 'program-contact-blurb' ); ?>
-
-    <?php if( have_rows('program-did-you-know') ): ?>
-        <h3>Did you know?</h3>
-        <ul>
-            <?php while( have_rows('program-did-you-know') ): the_row(); ?>
-                <li><?php the_sub_field('fact'); ?></li>
-            <?php endwhile; ?>
-        </ul>
-    <?php endif; ?>
-
-<?php
+        </div>
+    <?php endif;
 }
+
+function ext_do_menu_sidebar()
+{
+
+    if (is_active_sidebar('programs-menu-column')) :
+        dynamic_sidebar('programs-menu-column');
+    endif;
+
+}
+
+function ext_do_program_right_sidebar()
+{
+    if( $contact_blurb = get_field('program-contact-blurb') )
+    {
+        echo '<h4 class="widget-title widgettitle contact-blurb">' . $contact_blurb . '</h4>';
+    }
+
+    if (have_rows('program-featured-sites')):
+        echo '<div id="featured-1" class="widget widget_nav_menu"><div class="widget-wrap">';
+        echo '<h4 class="widget-title widgettitle">Featured Sites</h4>';
+        echo '<div class="menu-container">';
+        echo '<ul>';
+        while (have_rows('program-featured-sites')) {
+            the_row();
+            echo "<li><a href=\"" . get_sub_field('url') . "\" title=\"" . get_sub_field('title') . "\">" . get_sub_field('title') . "</a></li>";
+        }
+        echo '</ul>';
+        echo '</div>';
+        echo '</div></div>';
+    endif;
+
+}
+
+function ext_did_you_know()
+{
+
+    if ($rows = get_field('program-did-you-know')){
+        // Get a random 'fact'
+        $row_count = count($rows);
+        $i = rand(0, $row_count - 1);
+        echo '<div id="text-4" class="widget widget_text">';
+        echo '  <div class="widget-wrap">';
+        echo '  <h4 class="widget-title widgettitle">Did you know?</h4>';
+        echo $rows[$i]['fact'];
+        echo '  </div>';
+        echo '</div>';
+    }
+
+}
+
 
 genesis();

@@ -38,6 +38,15 @@ class WidgetAreas {
             )
         );
 
+        genesis_register_widget_area(
+            array(
+                'id'               => 'programs-menu-column',
+                'name'             => __( 'Programs Menu', 'agrilife_extension' ),
+                'description'      => __( 'This is the Programs menu widget area. It appears in the left column. This widget area is not equipped to display any widget, and works best with menus', 'agrilife_extension' ),
+                '_genesis_builtin' => false,
+            )
+        );
+
     }
 
 
