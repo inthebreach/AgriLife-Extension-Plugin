@@ -29,10 +29,6 @@ if (is_singular('extension-solutions')) {
 }
 
 
-
-// Breadcrumbs
-add_action('genesis_entry_header', 'genesis_do_breadcrumbs');
-
 add_action('genesis_entry_content', 'agrilife_ext_solution_content');
 
 
