@@ -14,6 +14,9 @@ class RequiredDOM {
         // Add Extension Body Class
         add_filter( 'body_class', array( $this, 'ext_body_class') );
 
+        // Add Page Slug to Body Class
+        add_filter( 'body_class', array( $this, 'slug_body_class') );
+
         // Render the footer
         add_action( 'genesis_header', array($this, 'add_extension_footer_content') ) ;
 
@@ -72,6 +75,28 @@ class RequiredDOM {
     public function ext_body_class( $classes ) {
 
         $classes[] = 'extenion-site';
+        return $classes;
+
+    }
+
+    /**
+     * Add page slug and category to body class
+     *
+     * @param $classes The existing body classes
+     *
+     * @return string
+     */
+    public function slug_body_class( $classes ) {
+
+        global $post;
+
+        if ( isset( $post ) ) {
+            $classes[] = $post->post_type . '-' . $post->post_name;
+
+            $parent = get_page($post->post_parent);
+            $classes[] = $parent->post_type . '-parent-' . $parent->post_name;
+        }
+
         return $classes;
 
     }
