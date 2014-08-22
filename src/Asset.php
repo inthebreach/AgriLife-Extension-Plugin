@@ -49,6 +49,8 @@ class Asset {
 
         add_image_size( 'program-solution_single', 560, 315, true );
         add_image_size( 'post-thumbnail', 75, 75, true );
+        add_image_size( 'home-hero', 750, 347, true );
+        add_image_size( 'home-featured', 350, 197, true);
 
     }
 
