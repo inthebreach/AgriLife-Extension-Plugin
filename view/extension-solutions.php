@@ -21,9 +21,9 @@ if (is_singular('extension-solutions')) {
 
     // Right Column
     // Remove the default (right) genesis sidebar
-    remove_action('genesis_sidebar', 'genesis_do_sidebar');
+    //remove_action('genesis_sidebar', 'genesis_do_sidebar');
     // Add the sidebar content
-    add_action('genesis_sidebar', 'ext_do_right_sidebar');
+    //add_action('genesis_sidebar', 'ext_do_right_sidebar');
     add_action('genesis_sidebar', 'ext_did_you_know');
 
 }
