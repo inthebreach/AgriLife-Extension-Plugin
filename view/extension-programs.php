@@ -48,7 +48,7 @@ function agrilife_child_page_list() {
     the_field( 'program-description' );
 
     if( have_rows('program-quick-links') ): ?>
-        <!-- <h3>Quick Links</h3> -->
+        <h3>Quick Links</h3>
         <div class="solution-links">
         <ul>
             <?php while( have_rows('program-quick-links') ): the_row(); ?>

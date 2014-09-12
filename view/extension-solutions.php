@@ -62,7 +62,7 @@ function agrilife_ext_solution_content()
 
 
     <?php if (have_rows('solution-links')): ?>
-    <!-- <h3>Link Title Blurb</h3> -->
+    <h3>Hot Links</h3>
     <div class="solution-links">
         <ul>
             <?php while (have_rows('solution-links')): the_row(); ?>
