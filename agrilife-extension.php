@@ -39,12 +39,20 @@ add_action( 'widgets_init', function() {
 	register_widget( '\AgriLife\Extension\Widget\CountyOfficeLocator' );
 });
 
+
+// Load ACF Custom Post Types
 add_action( 'agrilife_core_init', function() {
 	$ext_posttype_program = new \AgriLife\Extension\PostType\Program();
-	$ext_program_fields = new \AgriLife\Core\CustomFields( 'Program Details', AG_EXT_DIR_PATH . '/fields' );
 });
 
 add_action( 'agrilife_core_init', function() {
 	$ext_posttype_solution = new \AgriLife\Extension\PostType\Solution();
-	$ext_solution_fields = new \AgriLife\Core\CustomFields( 'Solution Details', AG_EXT_DIR_PATH . '/fields' );
 });
+
+// Add new ACF json load point
+add_filter('acf/settings/load_json', 'agrilife_ext_acf_json_load_point');
+
+function agrilife_ext_acf_json_load_point( $paths ) {
+    $paths[] =  AG_EXT_DIR_PATH . 'fields' ;
+    return $paths;
+}
