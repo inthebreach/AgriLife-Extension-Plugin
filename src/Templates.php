@@ -66,9 +66,7 @@ class Templates {
                     $categorylist .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$args['sep'];
                 }
             }
-            $crumb = '<a href="' . get_permalink( get_option( 'page_for_posts' ) ) . '">' . get_the_title( get_option( 'page_for_posts' ) ) .'</a> ' . $args['sep'] .
-                $categorylist .
-                $crumb;
+            $crumb = $categorylist . $crumb;
         }
         if (  is_category()  ) {
             $crumb = '<a href="' . get_permalink( get_option( 'page_for_posts' ) ) . '">' . get_the_title( get_option( 'page_for_posts' ) ) .'</a> ' . $args['sep'] . $crumb;
