@@ -7,6 +7,7 @@ class Templates {
     public function __construct() {
 
         add_filter( 'single_template', array( $this, 'get_single_template' ) );
+        add_filter( 'frontpage_template', array( $this, 'filter_front_page_template') );
 
         add_filter( 'genesis_single_crumb' , array( $this, 'ext_add_cpt_crumb' ), 10, 2);
         add_filter( 'genesis_archive_crumb' , array( $this, 'ext_add_cpt_crumb' ), 10, 2);
@@ -35,9 +36,27 @@ class Templates {
             $single_template = AG_EXT_DIR_PATH . '/view/extension-solutions.php';
         }
 
+        if (  is_front_page()  ) {
+            $single_template = AG_EXT_DIR_PATH . '/view/extension-front-page.php';
+        }
+        print_r($post);
+
         return $single_template;
 
     }
+
+    /**
+     * Shows the custom home template when needed
+     * @param  string $home_template The default single template
+     * @return string                  The correct single template
+     */
+    public function filter_front_page_template( $home_template ) {
+
+        $home_template = AG_EXT_DIR_PATH . '/view/extension-front-page.php';
+
+        return $home_template;
+    }
+
 
     /**
      * Shows the programs or solutions template when needed
