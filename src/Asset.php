@@ -6,8 +6,6 @@ class Asset {
 
 	public function __construct() {
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_js' ) );
-
         $this->add_image_sizes();
 
         // Register global styles used in the theme
@@ -18,26 +16,6 @@ class Asset {
 
         // Dequeue global styles
         add_action( 'wp_print_styles', array( $this, 'dequeue_global_styles'), 5 );
-
-	}
-
-	public function register_js() {
-
-		wp_register_script(
-			'jquery-cookie',
-			AG_EXT_DIR_URL . 'bower_modules/jquery-cookie/jquery.cookie.js',
-			array( 'jquery' ),
-			false,
-			true
-		);
-
-		wp_register_script(
-			'county-office-locator',
-			AG_EXT_DIR_URL . '/js/county-office-locator.js',
-			array( 'jquery', 'jquery-cookie' ),
-			false,
-			true
-		);
 
 	}
 

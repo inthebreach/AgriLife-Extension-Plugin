@@ -29,16 +29,9 @@ $ext_required_dom = new \AgriLife\Extension\RequiredDOM();
 
 $ext_asset = new \AgriLife\Extension\Asset();
 
-$ext_ajax = new \AgriLife\Extension\Ajax();
-
 $ext_templates = new \AgriLife\Extension\Templates();
 
 $ext_widget_areas = new \AgriLife\Extension\WidgetAreas();
-
-add_action( 'widgets_init', function() {
-	register_widget( '\AgriLife\Extension\Widget\CountyOfficeLocator' );
-});
-
 
 // Load ACF Custom Post Types
 add_action( 'agrilife_core_init', function() {
