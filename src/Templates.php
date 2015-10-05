@@ -39,7 +39,6 @@ class Templates {
         if (  is_front_page()  ) {
             $single_template = AG_EXT_DIR_PATH . '/view/extension-front-page.php';
         }
-        print_r($post);
 
         return $single_template;
 
