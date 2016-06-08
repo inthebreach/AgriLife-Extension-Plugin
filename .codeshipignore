@@ -44,6 +44,7 @@ Thumbs.db
 
 # Directories that may or may not exist in repo AND should not be on the server
 bower_modules/**/jquery/src/
+bower_modules/**/jquery/*.json
 bower_modules/**/jquery-cookie/*.json
 bower_modules/**/*.txt
 node_modules
