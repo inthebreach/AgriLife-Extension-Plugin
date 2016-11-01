@@ -110,14 +110,14 @@ function agrilife_ext_home_program_areas()
 
 		<div class="single-program">
 			<a href="/programs/volunteer-programs/">
-				<img src="http://extension.agrilife.org/wp-content/uploads/2014/06/youth.jpg" alt="" class="program-image">
+				<img src="//extension.agrilife.org/wp-content/uploads/2014/06/youth.jpg" alt="" class="program-image">
 				<h3 class="program-name">Volunteer Programs &gt;</h3>
 			</a>
 		</div>
 
 		<div class="single-program">
 			<a href="/browse/program-areas/">
-				<img src="http://extension.agrilife.org/wp-content/uploads/2014/06/anr.jpg" alt="" class="program-image">
+				<img src="//extension.agrilife.org/wp-content/uploads/2014/06/anr.jpg" alt="" class="program-image">
 				<h3 class="program-name">Agriculture and Natural Resources &gt;</h3>
 			</a>
 			<p class="program-desc"></p>
@@ -125,7 +125,7 @@ function agrilife_ext_home_program_areas()
 
 		<div class="single-program">
 			<a href="/programs/community-economic-development/">
-				<img src="http://extension.agrilife.org/wp-content/uploads/2014/06/youth2.jpg" alt="" class="program-image">
+				<img src="//extension.agrilife.org/wp-content/uploads/2014/06/youth2.jpg" alt="" class="program-image">
 				<h3 class="program-name">Community Economic Development &gt;</h3>
 			</a>
 			<p class="program-desc"></p>
@@ -133,7 +133,7 @@ function agrilife_ext_home_program_areas()
 
 		<div class="single-program">
 			<a href="/programs/family-consumer-sciences/">
-				<img src="http://extension.agrilife.org/wp-content/uploads/2014/06/youth4.jpg" alt="" class="program-image">
+				<img src="//extension.agrilife.org/wp-content/uploads/2014/06/youth4.jpg" alt="" class="program-image">
 				<h3 class="program-name">Family and Consumer Sciences &gt;</h3>
 			</a>
 			<p class="program-desc"></p>
