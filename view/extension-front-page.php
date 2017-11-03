@@ -134,7 +134,7 @@ function agrilife_ext_home_program_areas()
 		<div class="single-program">
 			<a href="/programs/family-consumer-sciences/">
 				<img src="../../wp-content/uploads/2014/06/youth4.jpg" alt="" class="program-image">
-				<h3 class="program-name">Family and Consumer Sciences &gt;</h3>
+				<h3 class="program-name">Family and Community Health &gt;</h3>
 			</a>
 			<p class="program-desc"></p>
 		</div>
