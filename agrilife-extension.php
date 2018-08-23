@@ -49,3 +49,16 @@ function agrilife_ext_acf_json_load_point( $paths ) {
     $paths[] =  AG_EXT_DIR_PATH . 'fields' ;
     return $paths;
 }
+
+// Temporarily add hyperlink to site tagline
+function agrilife_ext_tagline_link( $desc, $inside, $wrap ){
+
+	$new_inside = $inside . ' <a href="../../about/economic-impact-briefs/">View Economic Impacts</a> <span style="">&raquo;</span>';
+
+	$desc = str_replace($inside, $new_inside, $desc);
+
+	return $desc;
+
+}
+
+add_filter( 'genesis_seo_description', 'agrilife_ext_tagline_link', 11, 2);
