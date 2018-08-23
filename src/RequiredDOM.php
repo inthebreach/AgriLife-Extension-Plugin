@@ -26,6 +26,8 @@ class RequiredDOM {
         // Move tagline below navigation
         add_action('genesis_header',array($this, 'move_tagline') );
 
+        add_filter( 'genesis_seo_description', array($this, 'add_tagline_link'), 11, 2);
+
 	}
 
 	/**
@@ -62,6 +64,21 @@ class RequiredDOM {
 
         remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
         add_action('genesis_after_header','genesis_seo_site_description');
+
+    }
+
+    /**
+     * Adds a hyperlink
+     *
+     * @return void
+     */
+    public function add_tagline_link( $desc, $inside, $wrap ){
+
+        $new_inside = $inside . ' <a href="../../about/economic-impact-briefs/">View Economic Impacts</a> <span class="aquo">&raquo;</span>';
+
+        $desc = str_replace($inside, $new_inside, $desc);
+
+        return $desc;
 
     }
 
