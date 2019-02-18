@@ -26,7 +26,7 @@ class RequiredDOM {
         // Move tagline below navigation
         add_action('genesis_header',array($this, 'move_tagline') );
 
-        add_filter( 'genesis_seo_description', array($this, 'add_tagline_link'), 11, 2);
+        add_filter( 'genesis_seo_description', array($this, 'add_tagline_link'), 11, 3);
 
 	}
 

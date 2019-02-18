@@ -1,11 +1,9 @@
 {
   "name": "agrilife-extension",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Functionality for AgriLife Extension sites",
   "main": "agrilife-extension.php",
-  "scripts": {
-    "test": "phpunit"
-  },
+  "scripts": {},
   "repository": "https://github.com/agrilife/agrilife-extension",
   "author": "J. Aaron Eaton",
   "license": "GPL2+",
