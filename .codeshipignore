@@ -54,6 +54,4 @@ bower.json
 config.rb
 *.coffee
 package.json
-known-issues.json
-vipscan.json
 *.md
