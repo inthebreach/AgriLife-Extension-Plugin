@@ -3,10 +3,10 @@
  * Plugin Name: AgriLife Extension
  * Plugin URI: https://github.com/AgriLife/AgriLife-Extension
  * Description: Functionality for AgriLife Extension sites
- * Version: 1.0
- * Author: J. Aaron Eaton
- * Author URI: http://channeleaton.com
- * Author Email: aaron@channeleaton.com
+ * Version: 1.1.3
+ * Author: J. Aaron Eaton, Zachary Watkins
+ * Author URI: https://communications.agrilife.org/
+ * Author Email: first-call@tamu.edu
  * License: GPL2+
  */
 
