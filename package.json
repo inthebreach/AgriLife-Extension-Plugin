@@ -9,7 +9,7 @@
   "repository": "https://github.com/agrilife/agrilife-extension",
   "author": "J. Aaron Eaton",
   "license": "GPL2+",
-  "devDependencies": {
+  "dependencies": {
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-compass": "~0.6.0",
     "grunt-contrib-coffee": "~0.10.0",
