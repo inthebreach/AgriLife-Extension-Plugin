@@ -74,7 +74,7 @@ class RequiredDOM {
      */
     public function add_tagline_link( $desc, $inside, $wrap ){
 
-        $new_inside = $inside . ' <a href="../../about/economic-impact-briefs/">View Economic Impacts</a> <span class="aquo">&raquo;</span>';
+        $new_inside = $inside . ' <a href="/about/economic-impact-briefs/">View Economic Impacts</a> <span class="aquo">&raquo;</span>';
 
         $desc = str_replace($inside, $new_inside, $desc);
 
@@ -223,8 +223,8 @@ class RequiredDOM {
         $output = '
             <div class="footer-container-required">
                 <ul class="req-links">
-			        <li><a href="http://agrilife.org/required-links/compact/">Compact with Texans</a></li>
-			        <li><a href="http://agrilife.org/required-links/privacy/">Privacy and Security</a></li>
+			        <li><a href="https://agrilifeextension.tamu.edu/about/legal-information/compact-texans/">Compact with Texans</a></li>
+			        <li><a href="https://agrilifeextension.tamu.edu/about/legal-information/privacy-policy/">Privacy and Security</a></li>
 			        <li><a href="http://itaccessibility.tamu.edu/" target="_blank">Accessibility Policy</a></li>
 			        <li><a href="http://publishingext.dir.texas.gov/portal/internal/resources/DocumentLibrary/State%20Website%20Linking%20and%20Privacy%20Policy.pdf" target="_blank">State Link Policy</a></li>
 			        <li><a href="http://www.tsl.state.tx.us/trail" target="_blank">Statewide Search</a></li>
@@ -234,7 +234,7 @@ class RequiredDOM {
 			        <li><a href="https://gov.texas.gov/organization/hsgd" target="_blank">Texas Homeland Security</a></li>
 			        <li><a href="http://veterans.portal.texas.gov/">Texas Veterans Portal</a></li>
 			        <li><a href="http://agrilifeas.tamu.edu/hr/diversity/equal-opportunity-educational-programs/" target="_blank">Equal Opportunity</a></li>
-			        <li class="last"><a href="http://agrilife.org/required-links/orpi/">Open Records/Public Information</a></li>
+			        <li class="last"><a href="https://agrilifeextension.tamu.edu/about/legal-information/open-records/">Open Records/Public Information</a></li>
 		        </ul>
             </div>';
 
