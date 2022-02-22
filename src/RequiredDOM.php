@@ -234,9 +234,10 @@ class RequiredDOM {
 			        <li><a href="https://gov.texas.gov/organization/hsgd" target="_blank">Texas Homeland Security</a></li>
 			        <li><a href="http://veterans.portal.texas.gov/">Texas Veterans Portal</a></li>
 			        <li><a href="http://agrilifeas.tamu.edu/hr/diversity/equal-opportunity-educational-programs/" target="_blank">Equal Opportunity</a></li>
-			        <li class="last"><a href="https://agrilifeextension.tamu.edu/about/legal-information/open-records/">Open Records/Public Information</a></li>
+			        <li class="last"><a href="https://agrilife.tamu.edu/required-links/orpi/">Open Records/Public Information</a></li>
 		        </ul>
             </div>';
+
 
         echo $output;
 
